@@ -85,6 +85,8 @@ ok what do i need. i need the starting number to be the beggening of the actual 
 i can use the single number method to get that but what is the ending number and how do i pass it in
 
 slice number == match.length - end.length
+
+so now litteraly my only problem besides the overwhelming complexity of my solution is that the start number is starting at wehre the last number is
 */
 
 function ranges(stringNums) {
@@ -102,16 +104,48 @@ function ranges(stringNums) {
   return result.flat();
 }
 
+function ifRange(str) {
+  if (str.includes('-')) {
+    return true;
+  } else if (str.includes(':')) {
+    return true;
+  } else if (str.includes('..')) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function singleNumbers(num, start) {
+  let whilst = (start + 1) * 1000;
+  
+  for (let i = start; i <= whilst; i++) {
+    let match = String(i);
+    if (match.slice(match.length - num.length).includes(num) && i > start) {
+      return i;
+    }
+  }
+  return null;
+}
+
+
 
 function rangeNumbers(str, list) {
   let rangeArr = str.match(/\d+/g);
+  let chopped = rangeArr.slice(1);
   let res = [];
   let first = list[list.length - 1];
   let start = Array.isArray(first) ? (Number(first[first.length - 1]) + 1) : Number(rangeArr[0]);
-  start = Array.isArray(first) ? singleNumbers(rangeArr[0], start) : Number(rangeArr[0]);
-  start = start < list[list.length - 1] ? list[list.length - 1] : start
+  if (Array.isArray(first)) { 
+    start = singleNumbers(rangeArr[0], start);
+  } else if (Number(first) > Number(rangeArr[0])) {
+  start = singleNumbers(rangeArr[0], list[list.length - 1]);
+  } else {
+    start = Number(rangeArr[0]);
+  }
+  
+  // console.log(start)
   let whilst = (start + 1) * 10;
-  let chopped = rangeArr.slice(1);
   chopped.forEach(end => {
     for (let i = start; i <= whilst; i++) {
       let match = String(i)
@@ -127,36 +161,10 @@ function rangeNumbers(str, list) {
   return res;
 }
 
-function singleNumbers(num, start) {
-  let whilst = (start + 1) * 1000;
-  
-  for (let i = start; i <= whilst; i++) {
-    let match = String(i);
-    if (match.includes(num) && i > start) {
-      return i;
-    }
-  }
-  return null;
-}
-
-function ifRange(str) {
-  if (str.includes('-')) {
-    return true;
-  } else if (str.includes(':')) {
-    return true;
-  } else if (str.includes('..')) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-
-
 console.log(ranges("1, 3, 7, 2, 4, 1")); //--> 1, 3, 7, 12, 14, 21
 console.log(ranges("1-3, 1-2")); //--> 1, 2, 3, 11, 12
 console.log(ranges("1:5:2")); //--> 1, 2, 3, 4, 5, 6, ... 12
 console.log(ranges("104-2")); //--> 104, 105, ... 112
-console.log(ranges("104-02")); //--> 104, 105, ... 202
-console.log(ranges("545, 64:11")); //--> 545, 564, 565, .. 61
+console.log(ranges("104-02-09-11")); //--> 104, 105, ... 202
+console.log(ranges("545, 4:11")); //--> 545, 564, 565, .. 61
 console.log(ranges("1, 2, 3, 4, 104..02")); //--> 104, 105, ... 202
