@@ -1,26 +1,21 @@
 /*
 --------------------- Problem ----------------------
 
------------- **Explicit Requirements** -------------
--  Rules:
+-------- **Explicit/Implicit Requirements** --------
 - Inputs:
 - Output:
------------- **Implicit Requirements** -------------
 
+-  Rules:
 ------------- **Clarifying Questions** -------------
--
+
 ------------ Examples/Test Cases/Edge's ------------
--  Visual Reference:
+
 ------------------ Data Structure ------------------
 
+--------------- High-Level Algorithm ---------------
+
 -------------------- Algorithm ---------------------
+      Verify your algorithm against the examples
+            **** helper functions? ****
 
-              **** helper functions ****
-
----------------------- Notes -----------------------
-Understand the problem
-Examples/test cases
-Data structure and algorithms
-Verify your algorithm against the examples
-Start coding
 */
