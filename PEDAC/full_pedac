@@ -7,16 +7,18 @@
 
 -  Rules:
 ------------- **Clarifying Questions** -------------
-   edge:
-general:
+edge case:
+bad input:
 ------------ Examples/Test Cases/Edge's ------------
 
 ------------------ Data Structure ------------------
 
 ------------ High-Level Algorithm/Notes ------------
 
--------------------- Algorithm ---------------------
-      Verify your algorithm against the examples
+---------------- Algorithm/Testing -----------------
+
             **** helper functions? ****
+
+           **TESTING AREA FOR ALGORITHM**
 
 */
