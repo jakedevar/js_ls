@@ -77,6 +77,14 @@ function transpose(matrix) {
   return tranposed;
 }
 
+// function transpose(matrix) {
+//   let res = [];
+//   matrix.forEach((_, ind) => {
+//     res[ind] = [matrix[0][ind], matrix[1][ind], matrix[2][ind]]
+//   });
+//   return res;
+// }
+
 const newMatrix = transpose(matrix);
 
 console.log(newMatrix);      // [[1, 4, 3], [5, 7, 9], [8, 2, 6]]

@@ -1,22 +1,24 @@
 /*
 --------------------- Problem ----------------------
 
------------- **Explicit Requirements** -------------
--  Rules:
+-------- **Explicit/Implicit Requirements** --------
 - Inputs:
 - Output:
------------- **Implicit Requirements** -------------
 
+-  Rules:
 ------------- **Clarifying Questions** -------------
--
+edge case:
+bad input:
 ------------ Examples/Test Cases/Edge's ------------
--  Visual Reference:
+
 ------------------ Data Structure ------------------
 
--------------------- Algorithm ---------------------
+------------ High-Level Algorithm/Notes ------------
 
-              **** helper functions ****
+---------------- Algorithm/Testing -----------------
 
----------------------- Notes -----------------------
+            **** helper functions? ****
+
+           **TESTING AREA FOR ALGORITHM**
 
 */
