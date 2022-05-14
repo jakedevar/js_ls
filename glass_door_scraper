@@ -1,0 +1,30 @@
+const pup = require('puppeteer');
+let res = {};
+let text = [];
+
+async function count() {
+  const browser = await pup.launch({headless: false});
+
+  let page = await browser.newPage();
+  try {
+    await page.goto('https://www.glassdoor.com/Job/houston-tx-software-engineer-ii-jobs-SRCH_IL.0,10_IC1140171_KO11,31.htm?src=GD_JOB_AD&srs=ALL_RESULTS&jl=1007857807052&ao=1110586&s=345&guid=00000180c4925f74953d7bc30f001422&pos=101&t=SR-JOBS-HR&vt=w&uido=DC945D7F0168AB9ED3C10FB3E6BD5DBE&cs=1_23b1063a&cb=1652565368891&jobListingId=1007857807052&cpc=82B3195DA92CAF92&jrtk=3-0-1g3294ntcpv1e801-1g3294nukq6dc800-2a9ff4005e2de021--6NYlbfkN0CiRNM7CVr8YueLFKlzwbFWI0o7IjV438l4sVrvKZ0flpURU_mqoI8E-VxPfg2eTCHdbZCEoTpTBhmUd3U9mkRwojzKEhGTCObDmP-Zjd0MJBeTx2ZqgAHHoTp47Ky2RPmWUA9hafRqEwo7M4uPXPJH0wL-J0pjBuPgT-sFc2Rxa40P_Y21mOX84QlCRoWyIYK3m4dHKvIY_rkM8BLZKPU5jSIG3yoPcfk5wXF3NK_pbwxwzeJqV6ltDXwzy4WEvTObmsUnFEYVpbdwj_3iCGRn0KJCwjqpjnOGj3oTO_z_D7qI1EzteqLf2wx2xL4sRcqyYwCdi8v2P1ygJjqRmMTFWG4m_JV0t_TO9NoAFx4n8qqomTx9ykqGAqHxxb3VDOIo9Na_1xu6v3zgoTU3I1dHOHD3YA1BrxWEeD2xtL1nZITJi_zfbBl_PQNCcF8rcwC1UthOOngfNbJ4nZC-dPYWzNEmJqnKwrN1KglUmcnVhahQ6tRF6M6dvIXOEafGyPYPG0JeV6eo8SzBZamhAlJQFTSW0XyMB8o%3D');
+    const cards = await page.evaluate(() => {
+      let li = document.getElementsByClassName("hover p-0  job-search-key-kgm6qi exy0tjh1")[0].children
+      li[0].click()
+      let len = 10
+      for (let i = 0; i < len; i++) {
+        setTimeout(() => {
+          if (document.getElementsByClassName('SVGInline modal_closeIcon')) document.getElementsByClassName('SVGInline modal_closeIcon')[0].click();
+          li[i].click()
+        }, 10000)
+      }
+    })
+    
+    // console.log(cards)
+    // await browser.close();
+  } catch(e) {
+    console.log('error ' + e)
+    // await browser.close();
+  }
+}
+count()
