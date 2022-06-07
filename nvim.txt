@@ -1,1 +1,60 @@
+:set number
+:set relativenumber
+:set autoindent
+:set tabstop=2
+:set shiftwidth=2
+:set smarttab
+:set softtabstop=2
+:set mouse=a
+:set scrolloff=8
+:set signcolumn=yes
+:set hidden
+:set nowrap
+:set mouse+=a
+:filetype indent on
+:set filetype=html
+:set smartindent
+hi! TermCursor guifg=NONE guibg=#ebdbb2 gui=NONE cterm=NONE
+hi! TermCursorNC guifg=#ebdbb2 guibg=#3c3836 gui=NONE cterm=NONE
+call plug#begin()
+Plug 'https://github.com/Raimondi/delimitMate'
+Plug 'https://github.com/alvan/vim-closetag'
+Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
+Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
+Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
+Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
+Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} " CTRL + N for multiple cursors
+Plug 'https://github.com/tribela/vim-transparent'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+set encoding=UTF-8
+call plug#end()
 
+
+nmap <F8> :TagbarToggle<CR>
+noremap j k
+noremap k j
+:set completeopt-=preview " For No Previews
+
+:colorscheme sonokai
+
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+
+" --- Just Some Notes ---
+" :PlugClean :PlugInstall :UpdateRemotePlugins
+"
+" :CocInstall coc-python
+" :CocInstall coc-clangd
+" :CocInstall coc-snippets
+" :CocCommand snippets.edit... FOR EACH FILE TYPE
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+
+" airline symbols
